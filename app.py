@@ -1,11 +1,11 @@
-from flask import Flask, render_template, request, redirect, session
+from flask import Flask, render_template, request, redirect, session, flash
 import sqlite3
 import bcrypt
 import time
-from flask import flash
+import os
 
 app = Flask(__name__)
-app.secret_key = "secret123"
+app.secret_key = os.getenv("FLASK_SECRET_KEY")
 
 # Create DB
 def init_db():
